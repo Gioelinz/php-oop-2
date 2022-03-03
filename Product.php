@@ -3,7 +3,7 @@
 class Product
 {
     public $id;
-    public $name;
+    protected $name;
     public $price;
 
 
@@ -12,5 +12,10 @@ class Product
         $this->id = $id;
         $this->name = $name;
         $this->price = $price;
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 }

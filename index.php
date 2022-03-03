@@ -24,4 +24,4 @@ var_dump($customer);
 
 var_dump($product);
 
-var_dump($toy);
+var_dump($toy->getName());

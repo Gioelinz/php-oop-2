@@ -11,4 +11,9 @@ class Toys extends Product
 
         $this->type_of_animal = $type_of_animal;
     }
+
+    public function getName()
+    {
+        return parent::getName();
+    }
 }
