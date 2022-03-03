@@ -36,4 +36,18 @@ class Customer
     {
         return 'Possiedi il ' . $this->discount . '%' . ' ' . 'di sconto';
     }
+
+    public function buyProduct($product)
+    {
+        if ($this->credit_card->expire < date('Y')) {
+            return 'La tua Carta risulta non valida';
+        } else {
+            if ($product->price > $this->credit_card->balance) {
+                return 'Transazione Rifiutata, Fondi Insufficenti!';
+            } else {
+                $this->credit_card->balance -= $product->price;
+                return 'Transazione approvata' . ' hai speso ' . $product->price . '€';
+            }
+        }
+    }
 }
