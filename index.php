@@ -10,7 +10,7 @@ require_once __DIR__ . '/Customer.php';
 require_once __DIR__ . '/Toys.php';
 
 
-$my_card = new CreditCard('5555777722221111', '341', 2022, 10);
+$my_card = new CreditCard('5555777722221111', '341', 2022, 100);
 
 $customer = new Customer('Gioele', 'Runza', 22, $my_card, true);
 
@@ -20,17 +20,35 @@ $product = new Product(1, 'Croccantini', 10);
 $toy = new Toys(2, 'Osso Di Gomma', 5, 'Cane');
 
 
-var_dump($customer);
+/* echo $customer->getBalance();
 
-echo $customer->buyProduct($toy);
+echo $customer->buyProduct($product);
 
-var_dump($customer);
+echo $customer->getBalance(); */
 
 // var_dump($product);
 
-//var_dump($toy->getName());
-
-//echo $customer->getDiscount();
 
 // data corrente
 //echo date("d-m-Y");
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    </h1>
+    <h2>Possiedi <?= $customer->getBalance() ?></h2>
+    <h3><?= $customer->buyProduct($toy) ?>;</h3>
+    <h2>Possiedi <?= $customer->getBalance() ?></h2>
+</body>
+
+</html>

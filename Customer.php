@@ -39,6 +39,7 @@ class Customer
 
     public function getBalance()
     {
+        return $this->credit_card->balance . '€';
     }
 
     public function buyProduct($product)
@@ -52,10 +53,10 @@ class Customer
                 if ($this->discount > 0) {
                     $price = $product->price - $product->price / 100 * $this->discount;
                     $this->credit_card->balance -= $price;
-                    return "Transazione approvata, id acquisto: $product->id, Prodotto:" . $product->getName() . ", hai ricevuto uno sconto del $this->discount% ed hai speso $price €";
+                    return "Transazione approvata, id prodotto: $product->id, Prodotto:" . $product->getName() . ", hai ricevuto uno sconto del $this->discount% ed hai speso $price €";
                 } else {
                     $this->credit_card->balance -= $product->price;
-                    return "Transazione approvata, id acquisto: $product->id, Prodotto:" . $product->getName() . ",  hai speso $product->price €";
+                    return "Transazione approvata, id prodotto: $product->id, Prodotto:" . $product->getName() . ",  hai speso $product->price €";
                 }
             }
         }
