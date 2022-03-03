@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/CreditCard.php';
+
 class Customer
 {
     public $name;
@@ -17,8 +19,3 @@ class Customer
         $this->is_registered = $is_registered;
     }
 }
-
-$customer = new Customer('Gioele', 'Runza', 22, 'obj', true);
-
-
-var_dump($customer);
