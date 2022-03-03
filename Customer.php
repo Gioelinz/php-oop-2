@@ -45,7 +45,7 @@ class Customer
     public function buyProduct($product)
     {
         if ($this->credit_card->expire < date('Y')) {
-            return 'La tua Carta risulta non valida';
+            return 'La tua Carta risulta scaduta!';
         } else {
             if ($product->price > $this->credit_card->balance) {
                 return 'Transazione Rifiutata, Fondi Insufficenti!';

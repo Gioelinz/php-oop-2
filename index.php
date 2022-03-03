@@ -10,7 +10,7 @@ require_once __DIR__ . '/Customer.php';
 require_once __DIR__ . '/Toys.php';
 
 
-$my_card = new CreditCard('5555777722221111', '341', 2022, 100);
+$my_card = new CreditCard('5532576735221221', '341', 2022, 20);
 
 $customer = new Customer('Gioele', 'Runza', 22, $my_card, true);
 
@@ -41,14 +41,17 @@ echo $customer->getBalance(); */
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shop</title>
 </head>
 
 <body>
-    </h1>
+    <p>Carta n: <strong><?= $my_card->number ?></strong></p>
+    <address>Scadenza: <?= $my_card->expire ?></address>
+
+    <h1>Stai acquistando: <?= $toy->getName() ?></h1>
     <h2>Possiedi <?= $customer->getBalance() ?></h2>
-    <h3><?= $customer->buyProduct($toy) ?>;</h3>
-    <h2>Possiedi <?= $customer->getBalance() ?></h2>
+    <h3><?= $customer->buyProduct($toy) ?></h3>
+    <h2>Adesso possiedi <?= $customer->getBalance() ?></h2>
 </body>
 
 </html>
