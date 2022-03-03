@@ -10,7 +10,7 @@ require_once __DIR__ . '/Customer.php';
 require_once __DIR__ . '/Toys.php';
 
 
-$my_card = new CreditCard('5555777722221111', '341', 2022, 5);
+$my_card = new CreditCard('5555777722221111', '341', 2022, 10);
 
 $customer = new Customer('Gioele', 'Runza', 22, $my_card, true);
 

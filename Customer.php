@@ -37,6 +37,10 @@ class Customer
         return 'Possiedi il ' . $this->discount . '%' . ' ' . 'di sconto';
     }
 
+    public function getBalance()
+    {
+    }
+
     public function buyProduct($product)
     {
         if ($this->credit_card->expire < date('Y')) {
@@ -45,8 +49,14 @@ class Customer
             if ($product->price > $this->credit_card->balance) {
                 return 'Transazione Rifiutata, Fondi Insufficenti!';
             } else {
-                $this->credit_card->balance -= $product->price;
-                return 'Transazione approvata' . ' hai speso ' . $product->price . '€';
+                if ($this->discount > 0) {
+                    $price = $product->price - $product->price / 100 * $this->discount;
+                    $this->credit_card->balance -= $price;
+                    return "Transazione approvata, id acquisto: $product->id, Prodotto:" . $product->getName() . ", hai ricevuto uno sconto del $this->discount% ed hai speso $price €";
+                } else {
+                    $this->credit_card->balance -= $product->price;
+                    return "Transazione approvata, id acquisto: $product->id, Prodotto:" . $product->getName() . ",  hai speso $product->price €";
+                }
             }
         }
     }
