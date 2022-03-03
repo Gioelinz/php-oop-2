@@ -16,13 +16,24 @@ class Customer
         $this->name = $name;
         $this->last_name = $last_name;
         $this->age = $age;
-        $this->credit_card = $credit_card;
+        $this->setCreditCard($credit_card);
         $this->is_registered = $is_registered;
         $this->discount = $this->setDiscount();
     }
 
-    public function setDiscount()
+    private function setCreditCard($credit_card)
+    {
+        if (!$credit_card instanceof CreditCard) return false;
+        $this->credit_card = $credit_card;
+    }
+
+    private function setDiscount()
     {
         return $this->is_registered ? $this->discount = 20 : $this->discount = 0;
+    }
+
+    public function getDiscount()
+    {
+        return 'Possiedi il ' . $this->discount . '%' . ' ' . 'di sconto';
     }
 }
