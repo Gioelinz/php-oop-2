@@ -45,8 +45,8 @@ echo $customer->getBalance(); */
 </head>
 
 <body>
-    <p>Carta n: <strong><?= $my_card->number ?></strong></p>
-    <address>Scadenza: <?= $my_card->expire ?></address>
+    <p>Carta n: <strong><?= $my_card->getNumber() ?></strong></p>
+    <address>Scadenza: <?= $my_card->getExpire() ?></address>
 
     <h1>Stai acquistando: <?= $toy->getName() ?></h1>
     <h2>Possiedi <?= $customer->getBalance() ?></h2>
