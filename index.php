@@ -12,9 +12,9 @@ require_once __DIR__ . '/Cart.php';
 
 
 
-$my_card = new CreditCard('5532576735221221', '341', 2022, 20);
+$my_card = new CreditCard('5532576735221221', '341', 2022, 200);
 
-$customer = new Customer('Gioele', 'Runza', 22, $my_card, true);
+$customer = new Customer('Gioele', 'Runza', 22, $my_card, false);
 
 $product = new Product(1, 'Croccantini', 10);
 
@@ -34,6 +34,8 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage();
 }
+
+// echo $customer->buyProducts($cart->products);
 
 //var_dump($cart);
 
@@ -58,10 +60,17 @@ try {
     <address>Scadenza: <?= $my_card->getExpire() ?></address>
     <p><strong>Indirizzo di spedizione:</strong></p>
     <p><?= $customer->getAddress() ?></p>
-
-    <h1>Stai acquistando: <?= $toy->getName() ?></h1>
     <h2>Possiedi <?= $customer->getBalance() ?></h2>
-    <h3><?= $customer->buyProduct($toy) ?></h3>
+
+    <h1>Stai acquistando:</h1>
+    <ul>
+
+        <?php foreach ($cart->getProducts() as $product) { ?>
+            <li><?= $product->getName() ?>,</li>
+        <?php }; ?>
+    </ul>
+    <h3><?= $customer->buyProducts($cart->getProducts()) ?></h3>
+
     <h2>Adesso possiedi <?= $customer->getBalance() ?></h2>
 </body>
 

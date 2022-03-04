@@ -64,4 +64,11 @@ class Customer
             }
         }
     }
+
+    public function buyProducts($products)
+    {
+        foreach ($products as $product) {
+            $this->buyProduct($product);
+        }
+    }
 }
