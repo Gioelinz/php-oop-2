@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/CreditCard.php';
+require_once __DIR__ . '/Address.php';
 
 class Customer
 {
@@ -10,6 +11,8 @@ class Customer
     public $credit_card;
     public $is_registered;
     public $discount;
+
+    use Address;
 
     public function __construct($name, $last_name, $age, $credit_card, $is_registered = false)
     {

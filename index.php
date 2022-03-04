@@ -20,13 +20,10 @@ $product = new Product(1, 'Croccantini', 10);
 $toy = new Toys(2, 'Osso Di Gomma', 5, 'Cane');
 
 
-/* echo $customer->getBalance();
+$customer->setAddress('Italia', 'Caltanissetta', 'Via Roma, 1', '93100');
 
-echo $customer->buyProduct($product);
 
-echo $customer->getBalance(); */
-
-// var_dump($product);
+// var_dump($customer);
 
 
 // data corrente
@@ -47,6 +44,8 @@ echo $customer->getBalance(); */
 <body>
     <p>Carta n: <strong><?= $my_card->getNumber() ?></strong></p>
     <address>Scadenza: <?= $my_card->getExpire() ?></address>
+    <p><strong>Indirizzo di spedizione:</strong></p>
+    <p><?= $customer->getAddress() ?></p>
 
     <h1>Stai acquistando: <?= $toy->getName() ?></h1>
     <h2>Possiedi <?= $customer->getBalance() ?></h2>
