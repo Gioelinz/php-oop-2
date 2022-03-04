@@ -8,6 +8,8 @@ Il pagamento avviene con la carta di credito, che non deve essere scaduta. */
 
 require_once __DIR__ . '/Customer.php';
 require_once __DIR__ . '/Toys.php';
+require_once __DIR__ . '/Cart.php';
+
 
 
 $my_card = new CreditCard('5532576735221221', '341', 2022, 20);
@@ -22,8 +24,18 @@ $toy = new Toys(2, 'Osso Di Gomma', 5, 'Cane');
 
 $customer->setAddress('Italia', 'Caltanissetta', 'Via Roma, 1', '93100');
 
+$cart = new Cart();
 
-// var_dump($customer);
+$cart->setAddress('Italia', 'Caltanissetta', 'Via Roma, 1', '93100');
+
+try {
+    $cart->setProducts([$toy, $product]);
+    var_dump($cart);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+//var_dump($cart);
 
 
 // data corrente

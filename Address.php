@@ -17,7 +17,7 @@ trait Address
 
     public function getAddress()
     {
-        return "$this->state - $this->city - $this->street $this->postal_code";
+        return "$this->state - $this->city - $this->street - $this->postal_code";
     }
 
     /**
