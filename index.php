@@ -66,7 +66,7 @@ try {
     <ul>
 
         <?php foreach ($cart->getProducts() as $product) { ?>
-            <li><?= $product->getName() ?>,</li>
+            <li> <?= '€ ' . $product->getPrice() . ' ' . $product->getName() ?>,</li>
         <?php }; ?>
     </ul>
     <h3><?= $customer->buyProducts($cart->getProducts()) ?></h3>
